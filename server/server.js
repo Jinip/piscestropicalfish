@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use("/fishes/", require("./routes/fishRoute"));
 app.use("/guides/", require("./routes/guideRoute"));
 
-mongoose.connect("mongodb://localhost/fishShop");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fishShop");
 
 app.listen("8080", function(){
     console.log("serving on port 8080");
